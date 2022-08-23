@@ -1,0 +1,26 @@
+version: "3"
+services:
+  app:
+    image: lujainabusada/flask-api 
+    environment:
+      user: root
+      passwd: root
+      port: 3306
+      host: localhost
+      db: Statistics
+    depends_on:
+      - db
+    restart: always
+    network_mode: "host"
+    
+     
+  db:
+    image: lujainabusada/mysqldb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: localhost
+    

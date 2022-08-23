@@ -14,7 +14,7 @@ now = datetime.now()
 
 current_time = now.strftime("%H:%M:%S")
 db = mysql.connect(
-    host = "172.17.0.2",
+    host = "localhost",
     port = 3306,
     user = "root",
     passwd = "root",

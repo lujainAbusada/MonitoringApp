@@ -17,4 +17,4 @@ then
 fi
 
 docker build -t lujainabusada/mysqldb  .
-docker run -d -it --name mysql-db -p 3306:3306  lujainabusada/mysqldb
+#docker run -d -it --name mysql-db -p 3306:3306  lujainabusada/mysqldb

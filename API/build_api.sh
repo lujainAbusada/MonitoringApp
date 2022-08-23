@@ -17,4 +17,4 @@ then
 fi
 
 docker build -t lujainabusada/flask-api   .
-docker run -d -it -p 5000:5000 --network host --name flask-api -e port=3306  -e host=localhost -e user=root -e passwd=root -e db=Statistics lujainabusada/flask-api 
+#docker run -d -it -p 5000:5000 --network host --name flask-api -e port=3306  -e host=172.17.0.2 -e user=root -e passwd=root -e db=Statistics lujainabusada/flask-api 
