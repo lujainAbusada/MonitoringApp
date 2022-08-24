@@ -1,7 +1,7 @@
 import mysql.connector as mysql
 import os
 import wrapper
- 
+
 db = mysql.connect(
     host = os.environ['host'],
     user = os.environ['user'],
@@ -35,6 +35,7 @@ def retrieve_CPUNow_data():
     cursor.close()
     return ({"CPU Utilization" : records[1],"Time" : str(records[2])})
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_Memory_data():
     cursor = db.cursor()
     Memory = []
@@ -47,6 +48,7 @@ def retrieve_Memory_data():
     cursor.close()
     return(Memory)
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_MemoryNow_data():
     cursor = db.cursor()
     query = "SELECT * FROM `MemoryNow` ORDER BY id DESC LIMIT 1"
@@ -57,6 +59,7 @@ def retrieve_MemoryNow_data():
     return ({"Used" : record[1], "Total" : record [2], "Free": record [3],"Time" : str(record[4])})
 
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_Disk_data():
     cursor = db.cursor()
     Disk = []
@@ -69,7 +72,7 @@ def retrieve_Disk_data():
         Disk.append({"Used" : record[1], "Total" : record [2], "Free": record [3],"Time" : str(record[4])})
     return(Disk)
 
-
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_DiskNow_data():
     cursor = db.cursor()
     query = "SELECT * FROM `MemoryNow` ORDER BY id DESC LIMIT 1"

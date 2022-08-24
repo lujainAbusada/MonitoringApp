@@ -12,7 +12,7 @@ services:
       db:
         condition: service_healthy
     network_mode: "host"
-    
+    restart: always
      
   db:
     image: lujainabusada/mysqldb

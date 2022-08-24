@@ -1,5 +1,7 @@
 import mysql.connector as mysql
+import wrapper
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def CheckTableSize(cursor,table,limit):
 
     cursor.execute("SELECT COUNT(*) FROM " + table)
@@ -8,6 +10,7 @@ def CheckTableSize(cursor,table,limit):
        query=("DELETE FROM `" + table + "`ORDER BY time LIMIT 1")
        cursor.execute(query)
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def StoreUsage(db,values,query,table,limit):
 
     cursor = db.cursor()
