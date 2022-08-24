@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 services:
   app:
     image: lujainabusada/flask-api 
@@ -9,8 +9,8 @@ services:
       host: localhost
       db: Statistics
     depends_on:
-      - db
-    restart: always
+      db:
+        condition: service_healthy
     network_mode: "host"
     
      
@@ -23,4 +23,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_PASSWORD: root
       MYSQL_HOST: localhost
-    
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10

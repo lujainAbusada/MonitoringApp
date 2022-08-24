@@ -1,6 +1,7 @@
 import mysql.connector as mysql
 import os
-
+import wrapper
+ 
 db = mysql.connect(
     host = os.environ['host'],
     user = os.environ['user'],
@@ -8,9 +9,9 @@ db = mysql.connect(
     passwd = os.environ['passwd'],
     database = os.environ['db']
 )
-
 cursor = db.cursor()
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_CPU_data():
     cursor = db.cursor()    
     CPU = [] 	
@@ -24,6 +25,7 @@ def retrieve_CPU_data():
     cursor.close()
     return(CPU)     
 
+@wrapper.wrap(wrapper.entering, wrapper.exiting)
 def retrieve_CPUNow_data():
     cursor = db.cursor()
     query = "SELECT * FROM `CPUNow` ORDER BY id DESC LIMIT 1"

@@ -1,16 +1,26 @@
 import json
 from flask import Flask, jsonify
 import FetchData
-    
+import logging    
 
 app = Flask(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("logs.log",'w+'),
+        logging.StreamHandler()
+    ]
+)
 
 @app.route('/')
 def homepage():
+    logging.info('Call homepage')
     return json.dumps({'This is a Monitoring website' : 'Hello!'})
 
 @app.route('/Memory')
 def MemoryPage():
+    logging.info('Call homepage')
     return jsonify(FetchData.retrieve_Memory_data())
 
 @app.route('/Disk')
