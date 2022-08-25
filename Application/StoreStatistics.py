@@ -1,6 +1,7 @@
 import mysql.connector as mysql
 import wrapper
 
+
 @wrapper.wrap(wrapper.entering, wrapper.exiting)
 def CheckTableSize(cursor,table,limit):
 
@@ -12,9 +13,11 @@ def CheckTableSize(cursor,table,limit):
 
 @wrapper.wrap(wrapper.entering, wrapper.exiting)
 def StoreUsage(db,values,query,table,limit):
-
+    
     cursor = db.cursor()
     CheckTableSize(cursor,table,limit)
     cursor.execute(query, values)
     db.commit()
+    
+
 

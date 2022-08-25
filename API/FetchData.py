@@ -9,6 +9,7 @@ db = mysql.connect(
     passwd = os.environ['passwd'],
     database = os.environ['db']
 )
+
 cursor = db.cursor()
 
 @wrapper.wrap(wrapper.entering, wrapper.exiting)
