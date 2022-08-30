@@ -1,0 +1,6 @@
+2022-08-30 05:47:03,055 [INFO] Entered GetCPUUsage
+2022-08-30 05:47:07,060 [INFO] Exited  GetCPUUsage
+2022-08-30 05:47:07,060 [INFO] Entered GetDiskUsage
+2022-08-30 05:47:07,061 [INFO] Exited  GetDiskUsage
+2022-08-30 05:47:07,061 [INFO] Entered GetMemoryUsage
+2022-08-30 05:47:07,063 [INFO] Exited  GetMemoryUsage

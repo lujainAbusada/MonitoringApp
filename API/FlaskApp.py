@@ -1,12 +1,12 @@
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import FetchData
 
 app = Flask(__name__)
 
 @app.route('/', endpoint='homepage')
 def homepage():
-    return json.dumps({'This is a Monitoring website' : 'Hello!'})
+    return render_template('Home.html' )
 
 @app.route('/Memory', endpoint='MemoryPage')
 def MemoryPage():

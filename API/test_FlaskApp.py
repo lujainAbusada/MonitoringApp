@@ -35,8 +35,9 @@ def assert_Others(response):
                        
 def test_homepage(client):
     response = client.get("/")
-    assert b'Hello' in response.data
-
+    assert b'CPU' in response.data
+    assert b'Memory'in response.data
+    assert b'Disk' in response.data
 def test_CPUPage(client):
     response = client.get("/CPU")
     assert_CPU(response)

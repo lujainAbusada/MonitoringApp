@@ -1,11 +1,16 @@
 import logging
 import sys
+from datetime import datetime
+import wrapper
+
+now = datetime.now()
+current_time = now.strftime("%m-%d-%Y-%H:%M:%S")
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("logs.log",'w+'),
+        logging.FileHandler("/MonitoringApp/Logging/logs"+ current_time + ".log",'w+'),
         logging.StreamHandler(sys.stdout)
     ]
 )
